@@ -22,7 +22,7 @@ class SetRankCommand extends Command {
     constructor() {
         super({
             trigger: 'setrank',
-            description: 'Changes the rank of a user in the Roblox group.',
+            description: 'Belirtilen kişinin rütbesini değiştirir',
             type: 'ChatInput',
             module: 'ranking',
             args: [
@@ -34,13 +34,13 @@ class SetRankCommand extends Command {
                 },
                 {
                     trigger: 'roblox-role',
-                    description: 'What role would you like to change them to?',
+                    description: 'Hangi rütbe?',
                     autocomplete: true,
                     type: 'RobloxRole',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -102,7 +102,7 @@ class SetRankCommand extends Command {
         try {
             await robloxGroup.updateMember(robloxUser.id, role.id);
             ctx.reply({ embeds: [ await getSuccessfulSetRankEmbed(robloxUser, role.name) ]})
-            logAction('Update Rank', ctx.user, ctx.args['reason'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
+            logAction('Update Rank', ctx.user, ctx.args['neden'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
         } catch (err) {
             console.log(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
