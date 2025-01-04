@@ -6,7 +6,7 @@ export const config: BotConfig = {
     slashCommands: true,
     legacyCommands: {
         enabled: true,
-        prefixes: ['q!'],
+        prefixes: ['tco!'],
     },
     permissions: {
         all: [''],
@@ -40,7 +40,7 @@ export const config: BotConfig = {
         roles: [],
     },
     antiAbuse: {
-        enabled: false,
+        enabled: true,
         clearDuration: 1 * 60,
         threshold: 10,
         demotionRank: 1,
@@ -48,7 +48,7 @@ export const config: BotConfig = {
     activity: {
         enabled: false,
         type: ActivityType.Watching,
-        value: 'for commands.',
+        value: 'TCO Türkiye Cumhuriyeti Ordusu.',
     },
     status: 'online',
     deleteWallURLs: false,
