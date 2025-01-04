@@ -21,8 +21,8 @@ import { provider } from '../../database';
 class PromoteCommand extends Command {
     constructor() {
         super({
-            trigger: 'demote',
-            description: 'Demotes a user in the Roblox group.',
+            trigger: 'Tenzil',
+            description: 'Belirtilen kişinin rütbesini düşürür.',
             type: 'ChatInput',
             module: 'ranking',
             args: [
