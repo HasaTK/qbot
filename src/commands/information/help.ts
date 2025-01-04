@@ -12,13 +12,13 @@ class HelpCommand extends Command {
     constructor() {
         super({
             trigger: 'help',
-            description: 'Gets a list of commands to try.',
+            description: 'Komut listesi',
             type: 'ChatInput',
             module: 'information',
             args: [
                 {
                     trigger: 'command-name',
-                    description: 'What command would you like to learn more about, if any?',
+                    description: 'Hangi komut',
                     required: false,
                     type: 'String',
                 },
