@@ -33,8 +33,8 @@ class GroupBanCommand extends Command {
                     type: 'RobloxUser'
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     required: false,
                     type: 'String'
                 }
@@ -90,7 +90,7 @@ class GroupBanCommand extends Command {
                 isBanned: true
             });
             if(robloxMember) await robloxGroup.kickMember(robloxUser.id);
-            logAction('Group Ban', ctx.user, ctx.args['reason'], robloxUser);
+            logAction('Group Ban', ctx.user, ctx.args['neden'], robloxUser);
             return ctx.reply({ embeds: [ getSuccessfulGroupBanEmbed(robloxUser) ]});
         } catch(e) {
             console.log(e);
