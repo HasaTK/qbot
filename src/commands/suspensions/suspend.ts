@@ -24,8 +24,8 @@ import { provider } from '../../database';
 class SuspendCommand extends Command {
     constructor() {
         super({
-            trigger: 'suspend',
-            description: 'Temporarily fires a user.',
+            trigger: 'yetkial',
+            description: 'belirtilen kısıyı or-1 yapar',
             type: 'ChatInput',
             module: 'suspensions',
             args: [
@@ -37,12 +37,12 @@ class SuspendCommand extends Command {
                 },
                 {
                     trigger: 'duration',
-                    description: 'How long should they be suspended for? (Format example: 1d, 3d12h, 3 days)',
+                    description: 'Ne kadar süreliğine  (Format example: 1d, 3d12h, 3 days)',
                     type: 'String',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -120,7 +120,7 @@ class SuspendCommand extends Command {
         try {
             if(robloxMember.role.id !== role.id) await robloxGroup.updateMember(robloxUser.id, role.id);
             ctx.reply({ embeds: [ await getSuccessfulSuspendEmbed(robloxUser, role.name, endDate) ]});
-            logAction('Suspend', ctx.user, ctx.args['reason'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`, endDate);
+            logAction('Suspend', ctx.user, ctx.args['neden'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`, endDate);
         } catch (err) {
             console.error(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
