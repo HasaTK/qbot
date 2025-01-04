@@ -23,8 +23,8 @@ import { provider } from '../../database';
 class UnsuspendCommand extends Command {
     constructor() {
         super({
-            trigger: 'unsuspend',
-            description: 'Removes a suspension from a user, and ranks them back to their previous role.',
+            trigger: 'unyetkial',
+            description: 'belirtilen kisinin yetkisini geri verir',
             type: 'ChatInput',
             module: 'suspensions',
             args: [
@@ -35,8 +35,8 @@ class UnsuspendCommand extends Command {
                     type: 'String',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -102,7 +102,7 @@ class UnsuspendCommand extends Command {
         try {
             await robloxGroup.updateMember(robloxUser.id, role.id);
             ctx.reply({ embeds: [ await getSuccessfulUnsuspendEmbed(robloxUser, role.name) ]});
-            logAction('Unsuspend', ctx.user, ctx.args['reason'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
+            logAction('Unsuspend', ctx.user, ctx.args['neden'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
         } catch (err) {
             console.error(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
