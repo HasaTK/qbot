@@ -33,8 +33,8 @@ class RevertRanksCommand extends Command {
                     type: 'RobloxUser',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -105,7 +105,7 @@ class RevertRanksCommand extends Command {
             }, index * 1000);
         });
 
-        logAction('Revert Ranks', ctx.user, ctx.args['reason'], null, null, maximumDate);
+        logAction('Revert Ranks', ctx.user, ctx.args['neden'], null, null, maximumDate);
         return ctx.reply({ embeds: [ getSuccessfulRevertRanksEmbed(affectedLogs.length) ] });
     }
 }
