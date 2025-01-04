@@ -30,8 +30,8 @@ class UnGroupBanCommand extends Command {
                     type: 'RobloxUser'
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     required: false,
                     type: 'String'
                 }
@@ -75,7 +75,7 @@ class UnGroupBanCommand extends Command {
             await provider.updateUser(robloxUser.id.toString(), {
                 isBanned: false
             });
-            logAction('Ungroup Ban', ctx.user, ctx.args['reason'], robloxUser);
+            logAction('Ungroup Ban', ctx.user, ctx.args['neden'], robloxUser);
             return ctx.reply({ embeds: [ getSuccessfulGroupUnbanEmbed(robloxUser) ]});
         } catch(e) {
             console.log(e);
