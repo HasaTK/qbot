@@ -21,20 +21,20 @@ import { provider } from '../../database';
 class ExileCommand extends Command {
     constructor() {
         super({
-            trigger: 'exile',
-            description: 'Exiles a user from the Roblox group.',
+            trigger: 'uzaklaştır',
+            description: 'Bir kullanıcıyı Roblox grubundan atar eder.',
             type: 'ChatInput',
             module: 'admin',
             args: [
                 {
                     trigger: 'roblox-user',
-                    description: 'Who do you want to exile?',
+                    description: 'Who do you want to uzaklaştır?',
                     autocomplete: true,
                     type: 'RobloxUser',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -92,7 +92,7 @@ class ExileCommand extends Command {
         try {
             await robloxMember.kickFromGroup(config.groupId);
             ctx.reply({ embeds: [ await getSuccessfulExileEmbed(robloxUser) ]})
-            logAction('Exile', ctx.user, ctx.args['reason'], robloxUser);
+            logAction('Exile', ctx.user, ctx.args['neden'], robloxUser);
         } catch (err) {
             console.log(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
