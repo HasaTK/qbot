@@ -38,8 +38,8 @@ class RemoveXPCommand extends Command {
                     type: 'Number',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -98,7 +98,7 @@ class RemoveXPCommand extends Command {
 
         try {
             ctx.reply({ embeds: [ await getSuccessfulXPChangeEmbed(robloxUser, xp) ]});
-            logAction('Remove XP', ctx.user, ctx.args['reason'], robloxUser, null, null, null, `${userData.xp} → ${xp} (-${Number(ctx.args['decrement'])})`);
+            logAction('Remove XP', ctx.user, ctx.args['neden'], robloxUser, null, null, null, `${userData.xp} → ${xp} (-${Number(ctx.args['decrement'])})`);
         } catch (err) {
             console.log(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
