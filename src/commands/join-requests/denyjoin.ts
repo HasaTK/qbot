@@ -27,8 +27,8 @@ class DenyJoinCommand extends Command {
                     type: 'RobloxUser',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -72,7 +72,7 @@ class DenyJoinCommand extends Command {
         try {
             await robloxGroup.declineJoinRequest(robloxUser.id);
             ctx.reply({ embeds: [ await getSuccessfulDenyJoinRequestEmbed(robloxUser) ]});
-            logAction('Deny Join Request', ctx.user, ctx.args['reason'], robloxUser);
+            logAction('Deny Join Request', ctx.user, ctx.args['neden'], robloxUser);
         } catch (err) {
             console.log(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
