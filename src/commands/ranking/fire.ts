@@ -22,8 +22,8 @@ import { provider } from '../../database';
 class FireCommand extends Command {
     constructor() {
         super({
-            trigger: 'fire',
-            description: 'Sets a users rank in the Roblox group to 1.',
+            trigger: 'Demote',
+            description: 'Belirtilen kişinin rütbesini or-1 yapar',
             type: 'ChatInput',
             module: 'ranking',
             args: [
@@ -34,8 +34,8 @@ class FireCommand extends Command {
                     type: 'RobloxUser',
                 },
                 {
-                    trigger: 'reason',
-                    description: 'If you would like a reason to be supplied in the logs, put it here.',
+                    trigger: 'neden',
+                    description: 'If you would like a neden to be supplied in the logs, put it here.',
                     isLegacyFlag: true,
                     required: false,
                     type: 'String',
@@ -102,7 +102,7 @@ class FireCommand extends Command {
         try {
             await robloxGroup.updateMember(robloxUser.id, role.id);
             ctx.reply({ embeds: [ await getSuccessfulFireEmbed(robloxUser, role.name) ]});
-            logAction('Fire', ctx.user, ctx.args['reason'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
+            logAction('Fire', ctx.user, ctx.args['neden'], robloxUser, `${robloxMember.role.name} (${robloxMember.role.rank}) → ${role.name} (${role.rank})`);
         } catch (err) {
             console.error(err);
             return ctx.reply({ embeds: [ getUnexpectedErrorEmbed() ]});
